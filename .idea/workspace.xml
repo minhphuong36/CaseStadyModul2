@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b423e493-88a0-42cd-9472-3a749ced8f13" name="Changes" comment="" />
+    <list default="true" id="b423e493-88a0-42cd-9472-3a749ced8f13" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/cart.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/carts/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/carts/ManagerCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataproduct.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dataproduct.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/account/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/account/ManagerAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/account/ManagerAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/products/ManagerProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/products/ManagerProduct.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +25,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -72,7 +82,8 @@
       <workItem from="1669251616585" duration="6250000" />
       <workItem from="1669345171641" duration="50780000" />
       <workItem from="1669597103754" duration="14508000" />
-      <workItem from="1669691430965" duration="9122000" />
+      <workItem from="1669691430965" duration="18266000" />
+      <workItem from="1669771591113" duration="59439000" />
     </task>
     <servers />
   </component>

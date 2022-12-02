@@ -1,7 +1,5 @@
 package account;
 
-import products.Product;
-
 import java.io.*;
 import java.util.*;
 
@@ -63,13 +61,13 @@ public class ManagerAccount {
     }
 
     public Account createAccount() {
-        System.out.println("Nhập tên đăng nhập");
+        System.out.println("User Name:");
         String name = sc.nextLine();
 
-        System.out.println("Nhập mật khẩu");
+        System.out.println("PassWord:");
         String pass = sc.nextLine();
 
-        System.out.println("Nhập số điện thoại");
+        System.out.println("Your telephone is ...");
         int phone = Integer.parseInt(sc.nextLine());
         return new Account(name, pass, "user");
 
@@ -89,13 +87,12 @@ public class ManagerAccount {
     public Account checkAccount(String userName, String passWord) {
         int index = findIndexByUserPass(userName, passWord);
         if (index != -1) {
-            System.out.println("Đăng nhập thành công");
+            System.out.println("Logged in Successfully!");
+             return accounts.get(index);
         } else {
-            System.out.println("Tài khoản hoặc mat khẩu không đúng");
-
+            System.out.println("User or password is not exactly!");
         }
-
-        return accounts.get(index);
+       return null;
     }
 }
 

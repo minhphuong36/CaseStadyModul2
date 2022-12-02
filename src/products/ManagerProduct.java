@@ -1,12 +1,13 @@
 package products;
 
+import carts.Cart;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class ManagerProduct {
@@ -158,8 +159,6 @@ public class ManagerProduct {
         }
 
         writeToFileProduct(products);
-
-
     }
 
     public void deleteProduct(String id) {
@@ -171,20 +170,30 @@ public class ManagerProduct {
         }
     }
 
-    public static void buyProduct(String id, int amount) {
+
+
+    public static Cart buyProduct(String id, int amount, String userName) {
         int index = findIndexById(id);
         Product p = products.get(index);
-
+        Cart cart = null;
         if (index != -1) {
-            if(p.getAmount() < amount){
+            if (p.getAmount() < amount) {
                 System.out.println("Amount is not enough!");
-            }else {
-                p.setAmount(p.getAmount()-amount);
+            } else {
+                p.setAmount(p.getAmount() - amount);
+                System.out.printf("%-25s%-25s%-25s\n", "", "Name Product", " SumBill");
+                System.out.printf("%-25s%-25s%-25f\n", "", p.getName(), amount * p.getPrice());
+                cart = new Cart(userName, p.getName(), p.getPrice(), amount, p.getLocalBrand());
             }
         } else {
             System.out.println("Id is not exist");
         }
         writeToFileProduct(products);
+        return cart;
+
     }
+
+
+
 
 }
