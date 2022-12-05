@@ -1,1 +1,5 @@
-
+phuong,Galaxy Note3,14.0,3,SamSung
+phuong,iphone 13pro,20.0,4,Apple
+phuong,XperriA,12.0,2,Nokia
+phuong,XperriA,12.0,7,Nokia
+phuong,Realme,10.0,2,remi

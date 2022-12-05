@@ -9,14 +9,13 @@ public class ManagerCart {
 
 
 
-    public static void writeToFileCart(List<Cart> listStr) {
+    public static void writeToFileCart(Cart o) {
         try {
-            FileWriter fw = new FileWriter("cart.txt");
+            carts.add(o);
+            FileWriter fw = new FileWriter("cart.txt",true);
             BufferedWriter bw = new BufferedWriter(fw);
-            for (Cart o : listStr) {
-                bw.write(o.toString());
-                bw.newLine();
-            }
+            bw.write(o.toString());
+            bw.newLine();
             bw.close();
             fw.close();
 
@@ -50,14 +49,6 @@ public class ManagerCart {
         return carts;
     }
 
-    public void showCart() {
-        System.out.printf("%-25s%-25s%-25s%-25s%-25s\n", " ", "Name Product", "Price Product", "Amount");
-        System.out.println("                        -------------------------------------------------------------------------------------------------");
-        for (int i = 0; i < carts.size(); i++) {
-            Cart c = carts.get(i);
-            System.out.printf("%-25s%-25s%-25s%-25f%-25d\n", " ", c.getNameProduct(), c.getPriceProduct(), c.getAmountProduct());
-        }
-    }
 
     public static void showCartUser(List<Cart> carts) {
         System.out.printf("%-25s%-25s%-25s%-25s%-25s\n", " ", "Name Product", "Price Product", "Amount","localBrand");

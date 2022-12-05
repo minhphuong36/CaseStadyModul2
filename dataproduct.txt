@@ -1,2 +1,1 @@
-121,iphone 13pro,apple,20.0,167
-222,SSgalaxy,SamSung,30.0,562
+333;iphne 10;apple;1.5E7;11

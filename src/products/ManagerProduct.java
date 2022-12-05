@@ -12,12 +12,12 @@ import java.util.Scanner;
 
 public class ManagerProduct {
     Scanner sc = new Scanner(System.in);
-    static List<Product> products = new ArrayList<>();
+  public   static List<Product> products = new ArrayList<>();
     Product product = new Product();
 
     public static void writeToFileProduct(List<Product> products) {
         try {
-            FileWriter fw = new FileWriter("dataproduct.txt");
+            FileWriter fw = new FileWriter("dataproduct.txt",true);
             BufferedWriter bw = new BufferedWriter(fw);
             for (Product o : products) {
                 bw.write(o.toString());
@@ -41,7 +41,7 @@ public class ManagerProduct {
                 if (line == null) {
                     break;
                 }
-                String txt[] = line.split(",");
+                String txt[] = line.split(";");
                 String id = txt[0];
                 String name = txt[1];
                 String localBrand = txt[2];
@@ -51,6 +51,7 @@ public class ManagerProduct {
 
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return products;
     }
@@ -61,16 +62,16 @@ public class ManagerProduct {
         System.out.println("                        -------------------------------------------------------------------------------------------------");
         for (int i = 0; i < products.size(); i++) {
             Product p = products.get(i);
-            System.out.printf("%-25s%-25s%-25s%-25s%-25f%-25d\n", " ", p.getId(), p.getName(), p.getLocalBrand(), p.getPrice(), p.getAmount());
+            System.out.printf("%-25s%-25s%-25s%-25s%-25s%-25d\n", " ", p.getId(), p.getName(), p.getLocalBrand(),Product.covertPrice(p.getPrice()), p.getAmount());
         }
     }
 
-    public void showProductCustom() {
+    public static void showProductCustom() {
         System.out.printf("%-25s%-25s%-25s%-25s%-25s\n", " ", "Id product", "Name product", "LocalBrand", "Price product");
         System.out.println("                        --------------------------------------------------------------------------------------------------");
         for (int i = 0; i < products.size(); i++) {
             Product p = products.get(i);
-            System.out.printf("%-25s%-25s%-25s%-25s%-25f\n", " ", p.getId(), p.getName(), p.getLocalBrand(), p.getPrice());
+            System.out.printf("%-25s%-25s%-25s%-25s%-25s\n", " ", p.getId(), p.getName(), p.getLocalBrand(), Product.covertPrice(p.getPrice()));
         }
     }
 
@@ -125,7 +126,7 @@ public class ManagerProduct {
             if ("".equals(newName)) {
                 p.setName(p.getName());
             } else {
-                p.setId(newName);
+                p.setName(newName);
             }
 
             System.out.println("Enter LocalBrand");

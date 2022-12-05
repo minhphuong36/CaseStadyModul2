@@ -1,6 +1,9 @@
 public class test {
+    public static String covertPrice(double price) {
+        String covertPrice = String.format("%,.0f vnd", price);
+        return covertPrice;
+    }
     public static void main(String[] args) {
-        System.out.printf("%-12s%-12s%s\n","Column 1","Column 2","Column3");
-        System.out.printf("%-12.5s%s", "Hello Worldxxxxxxxxxxxxx","Worl");
+        System.out.println(covertPrice(11000010));
     }
 }

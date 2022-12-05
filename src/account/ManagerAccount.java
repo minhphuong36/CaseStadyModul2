@@ -68,7 +68,15 @@ public class ManagerAccount {
         String pass = sc.nextLine();
 
         System.out.println("Your telephone is ...");
-        int phone = Integer.parseInt(sc.nextLine());
+        int phone ;
+        do {
+            try {
+                phone = Integer.parseInt(sc.nextLine());
+                break;
+            } catch (InputMismatchException | NumberFormatException e) {
+                System.out.println("Enter the number, please!");
+            }
+        } while (true);
         return new Account(name, pass, "user");
 
 

@@ -59,10 +59,13 @@ public class Product {
         this.amount = amount;
     }
 
-
+    public static String covertPrice(double price) {
+        String covertPrice = String.format("%,.0f vnd", price);
+        return covertPrice;
+    }
 
     @Override
     public String toString() {
-        return id + "," +  name + "," +  localBrand + "," + price +"," + amount;
+        return id + ";" +  name + ";" +  localBrand + ";" + price +";" + amount;
     }
 }
