@@ -1,1 +1,3 @@
-333;iphne 10;apple;1.5E7;11
+222;Lumia;Nokia;1.35E7;89
+333;iphone 10;Apple;1.5E7;8
+111;Galaxy S;SamSung;2.0E7;226

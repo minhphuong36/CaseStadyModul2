@@ -2,16 +2,17 @@ package account;
 
 import java.io.*;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class ManagerAccount {
-    Scanner sc = new Scanner(System.in);
+     static Scanner sc = new Scanner(System.in);
 
     List<Account> accounts = new ArrayList<>();
     Account account = new Account();
 
     public void writeToFileAccount(List<Account> accounts) {
         try {
-            FileWriter fw = new FileWriter("data.txt", true);
+            FileWriter fw = new FileWriter("data.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             for (Account o : accounts) {
                 bw.write(o.toString());
@@ -39,7 +40,8 @@ public class ManagerAccount {
                 String userName = txt[0];
                 String passWord = txt[1];
                 String role = txt[2];
-                accounts.add(new Account(userName, passWord, role));
+                String phone = txt[3];
+                accounts.add(new Account(userName, passWord, role,phone));
 
             }
         } catch (Exception e) {
@@ -60,26 +62,59 @@ public class ManagerAccount {
         writeToFileAccount(accounts);
     }
 
-    public Account createAccount() {
-        System.out.println("User Name:");
-        String name = sc.nextLine();
 
-        System.out.println("PassWord:");
-        String pass = sc.nextLine();
+    public static String createPassWord() {
 
-        System.out.println("Your telephone is ...");
-        int phone ;
-        do {
-            try {
-                phone = Integer.parseInt(sc.nextLine());
+        String pass ="";
+
+        while (true) {
+            System.out.println("Enter passWord (have uppercase, lowercase letters, special symbols, at least 6 characters)");
+            pass = sc.nextLine();
+            Pattern pUp = Pattern.compile("^.*[A-Z]+.*$");
+            Pattern pDown = Pattern.compile("^.*[a-z]+.*$");
+            Pattern pDigit = Pattern.compile("^.*[0-9]+.*$");
+            Pattern pSpecial = Pattern.compile("^.*[#?!@$%^&*-]+.*$");
+            Pattern pLength = Pattern.compile("^.{6,}.*$");
+            if (pUp.matcher(pass).find() && pDown.matcher(pass).find() && pDigit.matcher(pass).find() &&
+                    pSpecial.matcher(pass).find() && pLength.matcher(pass).find()) {
                 break;
-            } catch (InputMismatchException | NumberFormatException e) {
-                System.out.println("Enter the number, please!");
+            } else {
+                System.err.println("                          The pass word is not regular!");
+
             }
-        } while (true);
-        return new Account(name, pass, "user");
 
+        }
+        return pass;
+    }
 
+    public static String createPhoneNumber(){
+         String phone;
+        while (true) {
+            System.out.println("Enter phone number (Ex regular phone: xxx-xxx-xxxx/ yyy.yyy.yyyy/ zzz zzz zzzz/ (nnn)-nnn-nnnn)");
+            phone = sc.nextLine();
+            Pattern p1 = Pattern.compile("^[0-9]{10}$");
+            Pattern p2 = Pattern.compile("^[0-9]{3}-[0-9]{3}-[0-9]{4}$");
+            Pattern p3 = Pattern.compile("^[0-9]{3}.[0-9]{3}.[0-9]{4}$");
+            Pattern p4 = Pattern.compile("^[0-9]{3} [0-9]{3} [0-9]{4}$");
+            Pattern p5 = Pattern.compile("^\\([0-9]{3}\\)-[0-9]{3}-[0-9]{4}$");
+            if (p1.matcher( phone).find() || p2.matcher(phone).find() || p3.matcher(phone).find() ||
+                    p4.matcher(phone).find() || p5.matcher(phone).find()) {
+                break;
+            } else {
+                System.err.println("                           The phone number is not regular");
+            }
+
+        }
+        return phone;
+
+    }
+
+    public Account createAccount() {
+        System.out.print("User Name:");
+        String name = sc.nextLine();
+        String pass = createPassWord();
+        String phone = createPhoneNumber();
+       return new Account(name, pass, "user",phone);
     }
 
     public int findIndexByUserPass(String userName, String passWord) {
@@ -98,9 +133,12 @@ public class ManagerAccount {
             System.out.println("Logged in Successfully!");
              return accounts.get(index);
         } else {
-            System.out.println("User or password is not exactly!");
+            System.err.println("User or password is not exactly!");
         }
        return null;
     }
+
+
+
 }
 

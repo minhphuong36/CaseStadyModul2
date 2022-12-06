@@ -9,15 +9,17 @@ public  class Account {
     private String passWord;
 
     private String role;
+    private String phone;
 
     public Account(){
 
     }
 
-    public Account(String userName, String passWord, String role) {
+    public Account(String userName, String passWord, String role,String phone) {
         this.userName = userName;
         this.passWord = passWord;
         this.role = role;
+        this.phone = phone;
     }
 
     public String getRole() {
@@ -45,8 +47,16 @@ public  class Account {
         this.passWord = passWord;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
-        return userName +"," + passWord +","+role;
+        return userName +"," + passWord +","+role +","+phone;
     }
 }

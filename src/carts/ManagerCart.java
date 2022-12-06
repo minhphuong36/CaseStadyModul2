@@ -1,5 +1,7 @@
 package carts;
 
+import products.Product;
+
 import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -12,7 +14,7 @@ public class ManagerCart {
     public static void writeToFileCart(Cart o) {
         try {
             carts.add(o);
-            FileWriter fw = new FileWriter("cart.txt",true);
+            FileWriter fw = new FileWriter("cart.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(o.toString());
             bw.newLine();
@@ -55,7 +57,7 @@ public class ManagerCart {
         System.out.println("                        -------------------------------------------------------------------------------------------------");
         for (int i = 0; i < carts.size(); i++) {
             Cart c = carts.get(i);
-            System.out.printf("%-25s%-25s%-25f%-25d%-25s\n", " ", c.getNameProduct(), c.getPriceProduct(), c.getAmountProduct(),c.getLocalBrand());
+            System.out.printf("%-25s%-25s%-25s%-25d%-25s\n", " ", c.getNameProduct(), Product.covertPrice(c.getPriceProduct()), c.getAmountProduct(),c.getLocalBrand());
         }
     }
 

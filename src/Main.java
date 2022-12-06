@@ -44,9 +44,9 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    System.out.println("User name:");
+                    System.out.print("User name:");
                     String name = sc.nextLine();
-                    System.out.println("Password");
+                    System.out.print("Password :");
                     String pass = sc.nextLine();
                     account = managerAccount.checkAccount(name, pass);
                     if (Objects.nonNull(account)) {
@@ -72,7 +72,7 @@ public class Main {
         if (account.getRole().equals("admin")) {
             while (true) {
 
-                System.out.println("Manager Product");
+                System.out.printf("%-25s%-25s\n"," ","MANAGER PRODUCT");
                 managerProduct.showProductManager();
                 System.out.println("1.Add product");
                 System.out.println("2.Edit product by Id");
@@ -85,7 +85,7 @@ public class Main {
                         choice = Integer.parseInt(sc.nextLine());
                         break;
                     } catch (InputMismatchException | NumberFormatException e) {
-                        System.out.println("Enter the number, please!");
+                        System.err.println("Choice the number, please!");
                     }
                 } while (true);
 
@@ -113,25 +113,25 @@ public class Main {
 
 
             while (true) {
-                System.out.println("Menu product");
-//                managerProduct.showProductCustom();
+
                 System.out.println("1.Buy product");
-                System.out.println("2.History by product");
+                System.out.println("2.History bought product");
                 System.out.println("3.Sort by price product");
                 System.out.println("4.Log Out");
 
                 int choice;
                 do {
                     try {
-                        System.out.print("Enter number from 1 to 4! ");
+                        System.out.print("Choice number from 1 to 4! ");
                         choice = Integer.parseInt(sc.nextLine());
                         break;
                     } catch (InputMismatchException | NumberFormatException e) {
-                        System.out.println("Enter the number, please!");
+                        System.err.println("Enter the number, please!");
                     }
                 } while (true);
                 switch (choice) {
                     case 1:
+                        System.out.printf("%-25s%-25s\n"," ","MENU PRODUCT");
                         managerProduct.showProductCustom();
                         System.out.println("Enter Id");
                         String idBuy = sc.nextLine();
@@ -143,25 +143,21 @@ public class Main {
                         }
                         break;
                     case 2:
-                        managerProduct.showProductCustom();
-                        System.out.println("History buy product");
+                        System.out.println("History bought product");
                         Map<String, List<Cart>> mapList = ManagerCart.cartOfUser();
                         List<Cart> listCart = mapList.get(account.getUserName());
-                        if (!(listCart.isEmpty())) {
+                        if (listCart != null && !(listCart.isEmpty())) {
                             ManagerCart.showCartUser(listCart);
                         } else {
-                            System.out.println("You not by any thing");
+                            System.err.println("You can not buy any thing");
                         }
 
                         break;
                     case 3:
 
-                        System.out.println(" Sort by price product");
+                        System.out.println("Sort by price product");
                         Collections.sort(ManagerProduct.products, new SortUpPrice());
                         ManagerProduct.showProductCustom();
-
-
-
                         break;
                     case 4:
                         return;

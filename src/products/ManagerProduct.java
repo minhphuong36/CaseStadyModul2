@@ -17,7 +17,7 @@ public class ManagerProduct {
 
     public static void writeToFileProduct(List<Product> products) {
         try {
-            FileWriter fw = new FileWriter("dataproduct.txt",true);
+            FileWriter fw = new FileWriter("dataproduct.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             for (Product o : products) {
                 bw.write(o.toString());
@@ -51,7 +51,7 @@ public class ManagerProduct {
 
             }
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return products;
     }
@@ -59,7 +59,7 @@ public class ManagerProduct {
 
     public void showProductManager() {
         System.out.printf("%-25s%-25s%-25s%-25s%-25s%-25s\n", " ", "Id product", "Name product", "LocalBrand", "Price product", "Amount");
-        System.out.println("                        -------------------------------------------------------------------------------------------------");
+        System.out.println("                        ------------------------------------------------------------------------------------------------------------");
         for (int i = 0; i < products.size(); i++) {
             Product p = products.get(i);
             System.out.printf("%-25s%-25s%-25s%-25s%-25s%-25d\n", " ", p.getId(), p.getName(), p.getLocalBrand(),Product.covertPrice(p.getPrice()), p.getAmount());
@@ -68,7 +68,7 @@ public class ManagerProduct {
 
     public static void showProductCustom() {
         System.out.printf("%-25s%-25s%-25s%-25s%-25s\n", " ", "Id product", "Name product", "LocalBrand", "Price product");
-        System.out.println("                        --------------------------------------------------------------------------------------------------");
+        System.out.println("                        -------------------------------------------------------------------------------------------");
         for (int i = 0; i < products.size(); i++) {
             Product p = products.get(i);
             System.out.printf("%-25s%-25s%-25s%-25s%-25s\n", " ", p.getId(), p.getName(), p.getLocalBrand(), Product.covertPrice(p.getPrice()));
@@ -156,7 +156,7 @@ public class ManagerProduct {
             }
 
         } else {
-            System.out.println("Id does not exist");
+            System.err.println("Id does not exist");
         }
 
         writeToFileProduct(products);
@@ -175,26 +175,23 @@ public class ManagerProduct {
 
     public static Cart buyProduct(String id, int amount, String userName) {
         int index = findIndexById(id);
-        Product p = products.get(index);
         Cart cart = null;
         if (index != -1) {
+            Product p = products.get(index);
             if (p.getAmount() < amount) {
                 System.out.println("Amount is not enough!");
             } else {
                 p.setAmount(p.getAmount() - amount);
                 System.out.printf("%-25s%-25s%-25s\n", "", "Name Product", " SumBill");
-                System.out.printf("%-25s%-25s%-25f\n", "", p.getName(), amount * p.getPrice());
+                System.out.printf("%-25s%-25s%-25s\n", "", p.getName(), Product.covertPrice(amount * p.getPrice()));
                 cart = new Cart(userName, p.getName(), p.getPrice(), amount, p.getLocalBrand());
             }
         } else {
-            System.out.println("Id is not exist");
+            System.err.println("Id is not exist");
         }
         writeToFileProduct(products);
         return cart;
 
     }
-
-
-
 
 }
