@@ -1,1 +1,1 @@
-tronghoanh,Lumia,1.35E7,2,Nokia
+minhphuong,Galaxy Note3,7500000.0,2,SamSung

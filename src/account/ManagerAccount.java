@@ -5,9 +5,9 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 public class ManagerAccount {
-     static Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    List<Account> accounts = new ArrayList<>();
+    static List<Account> accounts = new ArrayList<>();
     Account account = new Account();
 
     public void writeToFileAccount(List<Account> accounts) {
@@ -41,7 +41,7 @@ public class ManagerAccount {
                 String passWord = txt[1];
                 String role = txt[2];
                 String phone = txt[3];
-                accounts.add(new Account(userName, passWord, role,phone));
+                accounts.add(new Account(userName, passWord, role, phone));
 
             }
         } catch (Exception e) {
@@ -65,7 +65,7 @@ public class ManagerAccount {
 
     public static String createPassWord() {
 
-        String pass ="";
+        String pass = "";
 
         while (true) {
             System.out.println("Enter passWord (have uppercase, lowercase letters, special symbols, at least 6 characters)");
@@ -80,15 +80,14 @@ public class ManagerAccount {
                 break;
             } else {
                 System.err.println("                          The pass word is not regular!");
-
             }
 
         }
         return pass;
     }
 
-    public static String createPhoneNumber(){
-         String phone;
+    public static String createPhoneNumber() {
+        String phone;
         while (true) {
             System.out.println("Enter phone number (Ex regular phone: xxx-xxx-xxxx/ yyy.yyy.yyyy/ zzz zzz zzzz/ (nnn)-nnn-nnnn)");
             phone = sc.nextLine();
@@ -97,11 +96,11 @@ public class ManagerAccount {
             Pattern p3 = Pattern.compile("^[0-9]{3}.[0-9]{3}.[0-9]{4}$");
             Pattern p4 = Pattern.compile("^[0-9]{3} [0-9]{3} [0-9]{4}$");
             Pattern p5 = Pattern.compile("^\\([0-9]{3}\\)-[0-9]{3}-[0-9]{4}$");
-            if (p1.matcher( phone).find() || p2.matcher(phone).find() || p3.matcher(phone).find() ||
+            if (p1.matcher(phone).find() || p2.matcher(phone).find() || p3.matcher(phone).find() ||
                     p4.matcher(phone).find() || p5.matcher(phone).find()) {
                 break;
             } else {
-                System.err.println("                           The phone number is not regular");
+                System.err.println("                          The phone number is not regular");
             }
 
         }
@@ -109,12 +108,34 @@ public class ManagerAccount {
 
     }
 
+    public static boolean isUserName(String userName) {
+        for (int i = 0; i < accounts.size(); i++) {
+            if (userName.equals(accounts.get(i).getUserName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String createUser() {
+        String Name = "";
+        while (true) {
+            System.out.println("Enter user:");
+            Name = sc.nextLine();
+            if (isUserName(Name)) {
+                System.out.println("ko hơp le");
+            } else {
+                break;
+            }
+        }
+        return Name;
+    }
+
     public Account createAccount() {
-        System.out.print("User Name:");
-        String name = sc.nextLine();
+        String name = createUser();
         String pass = createPassWord();
         String phone = createPhoneNumber();
-       return new Account(name, pass, "user",phone);
+        return new Account(name, pass, "user", phone);
     }
 
     public int findIndexByUserPass(String userName, String passWord) {
@@ -131,13 +152,12 @@ public class ManagerAccount {
         int index = findIndexByUserPass(userName, passWord);
         if (index != -1) {
             System.out.println("Logged in Successfully!");
-             return accounts.get(index);
+            return accounts.get(index);
         } else {
             System.err.println("User or password is not exactly!");
         }
-       return null;
+        return null;
     }
-
 
 
 }

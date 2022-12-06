@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b423e493-88a0-42cd-9472-3a749ced8f13" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cart.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataproduct.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dataproduct.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/account/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/account/ManagerAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/account/ManagerAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/carts/ManagerCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/carts/ManagerCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/products/ManagerProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/products/ManagerProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +84,8 @@
       <workItem from="1670207552002" duration="11810000" />
       <workItem from="1670225869687" duration="6399000" />
       <workItem from="1670245226417" duration="3248000" />
-      <workItem from="1670289659956" duration="15383000" />
+      <workItem from="1670289659956" duration="18079000" />
+      <workItem from="1670331109060" duration="11889000" />
     </task>
     <servers />
   </component>
@@ -107,21 +102,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/products/ManagerProduct.java</url>
-          <line>102</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/products/ManagerProduct.java</url>
-          <line>176</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
