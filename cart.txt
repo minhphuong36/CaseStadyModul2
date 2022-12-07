@@ -1,1 +1,9 @@
-minhphuong,Galaxy Note3,7500000.0,2,SamSung
+tronghoanh,Galaxy Note3,7500000.0,2,SamSung
+tronghoanh,Galaxy Note3,7500000.0,1,SamSung
+tronghoanh,Lumia,1.35E7,2,Nokia
+tronghoanh,iphone 10,1.5E7,1,Apple
+minhtien,Galaxy Note3,7500000.0,1,SamSung
+minhtien,Lumia,1.35E7,2,Nokia
+tronghoanh,Lumia,1.35E7,3,Nokia
+manhtuong,Lumia,1.35E7,1,Nokia
+manhtuong,iphone 10,1.5E7,2,Apple

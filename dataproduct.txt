@@ -1,4 +1,6 @@
-222;Lumia;Nokia;1.35E7;87
-333;iphone 10;Apple;1.5E7;100
-444;Iphone XSmax;Apple;1.0E7;125
-111;Galaxy Note3;SamSung;7500000.0;118
+222;Lumia;Nokia;1.35E7;66
+333;iphone 10;Apple;1.5E7;74
+444;Iphone XSmax;Apple;1.0E7;105
+111;Galaxy Note3;SamSung;7500000.0;97
+555;Iphone 14pro;Apple;3.5E7;121
+123;110i;Nokia;1200000.0;100

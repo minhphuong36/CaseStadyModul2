@@ -7,14 +7,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class ManagerCart {
-    static List<Cart> carts = new ArrayList<>();
+    public static List<Cart> carts = new ArrayList<>();
 
 
 
     public static void writeToFileCart(Cart o) {
         try {
             carts.add(o);
-            FileWriter fw = new FileWriter("cart.txt");
+            FileWriter fw = new FileWriter("cart.txt",true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(o.toString());
             bw.newLine();
@@ -25,6 +25,7 @@ public class ManagerCart {
 
         }
     }
+
     public static List<Cart> readFromFileCart() {
         try {
             FileReader fr = new FileReader("cart.txt");
@@ -53,12 +54,15 @@ public class ManagerCart {
 
 
     public static void showCartUser(List<Cart> carts) {
-        System.out.printf("%-25s%-25s%-25s%-25s%-25s\n", " ", "Name Product", "Price Product", "Amount","localBrand");
-        System.out.println("                        -------------------------------------------------------------------------------------------------");
+        System.out.printf("%-25s%-25s%-25s%-25s%-25s\n", " ", "Name Product","localBrand", "Price Product", "Amount");
+        System.out.println("                        ------------------------------------------------------------------------------------");
+        float sumBill = 0;
         for (int i = 0; i < carts.size(); i++) {
             Cart c = carts.get(i);
-            System.out.printf("%-25s%-25s%-25s%-25d%-25s\n", " ", c.getNameProduct(), Product.covertPrice(c.getPriceProduct()), c.getAmountProduct(),c.getLocalBrand());
+            System.out.printf("%-25s%-25s%-25s%-25s%-25d\n", " ", c.getNameProduct(),c.getLocalBrand(), Product.covertPrice(c.getPriceProduct()), c.getAmountProduct());
+            sumBill += c.getPriceProduct()* c.getAmountProduct();
         }
+        System.out.printf("%-50s%-25s%-25s\n"," ","TotalBill:", Product.covertPrice(sumBill));
     }
 
     public static Map<String, List<Cart>> cartOfUser() {

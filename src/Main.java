@@ -135,8 +135,16 @@ public class Main {
                         managerProduct.showProductCustom();
                         System.out.println("Enter Id");
                         String idBuy = sc.nextLine();
-                        System.out.println("Enter Amount");
-                        int amountBuy = Integer.parseInt(sc.nextLine());
+                        int amountBuy;
+                        do {
+                            try {
+                                System.out.println("Enter Amount");
+                                amountBuy = Integer.parseInt(sc.nextLine());
+                                break;
+                            } catch (InputMismatchException | NumberFormatException e) {
+                                System.err.println("Enter the number, please!");
+                            }
+                        } while (true);
                         Cart cart = ManagerProduct.buyProduct(idBuy, amountBuy, account.getUserName());
                         if (cart != null) {
                             writeToFileCart(cart);

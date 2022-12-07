@@ -1,12 +1,14 @@
 package products;
 
 import carts.Cart;
+import carts.ManagerCart;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -91,10 +93,28 @@ public class ManagerProduct {
         System.out.println("Enter LocalBrand");
         String localBrand = sc.nextLine();
 
-        System.out.println("Enter Price");
-        double price = Double.parseDouble(sc.nextLine());
-        System.out.println("Enter Amount");
-        int amount = Integer.parseInt(sc.nextLine());
+
+        double price;
+        do {
+            try {
+                System.out.println("Enter Price");
+                price = Double.parseDouble(sc.nextLine());
+                break;
+            } catch (InputMismatchException | NumberFormatException e) {
+                System.err.println("Enter the number, please!");
+            }
+        } while (true);
+
+        int amount;
+        do {
+            try {
+                System.out.println("Enter Amount");
+                amount = Integer.parseInt(sc.nextLine());
+                break;
+            } catch (InputMismatchException | NumberFormatException e) {
+                System.err.println("Enter the number, please!");
+            }
+        } while (true);
 
         return new Product(id, name, localBrand, price, amount);
     }
